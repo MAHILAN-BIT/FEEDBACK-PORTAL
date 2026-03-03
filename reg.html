@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Industry Feedback Portal</title>
+    <link rel="stylesheet" href="sty.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Create Account</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 24px;">Join the portal today</p>
+
+        <div class="form-group">
+            <input type="text" id="username" placeholder="Choose Username">
+        </div>
+        <div class="form-group">
+            <input type="password" id="password" placeholder="Create Password">
+        </div>
+
+        <div class="form-group">
+            <select id="role">
+                <option value="college">College Person</option>
+                <option value="industry">Industry Person</option>
+            </select>
+        </div>
+
+        <button onclick="register()" class="btn-primary">Create Account</button>
+
+        <button onclick="window.location.href='log.html'" class="link-btn">
+            Back to Login
+        </button>
+
+    </div>
+
+    <script>
+        async function register() {
+            if (window.location.protocol === 'file:') {
+                alert("ERROR: You are opening this file directly. Please use http://localhost:3000/reg.html instead.\n\nMake sure to run 'node server.js' in your terminal first.");
+                return;
+            }
+            let username = document.getElementById("username").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let role = document.getElementById("role").value;
+
+            if (username === "" || password === "") {
+                alert("Please fill in all fields");
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password, role })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    alert("Account created successfully! Please login.");
+                    window.location.href = "log.html";
+                } else {
+                    alert(data.message || "Registration failed");
+                }
+            } catch (error) {
+                console.error("Registration Error:", error);
+                alert("Server connection failed. Please try again.");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

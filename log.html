@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Industry Feedback Portal</title>
+    <link rel="stylesheet" href="sty.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Welcome Back</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 24px;">Please login to your account</p>
+
+        <div class="form-group">
+            <input type="text" id="username" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <input type="password" id="password" placeholder="Password">
+        </div>
+
+        <div class="form-group">
+            <select id="role">
+                <option value="college">College Person</option>
+                <option value="industry">Industry Person</option>
+            </select>
+        </div>
+
+        <button onclick="login()" class="btn-primary">Login</button>
+
+        <button onclick="window.location.href='reg.html'" class="link-btn">
+            Create New Account
+        </button>
+
+    </div>
+
+    <script>
+        // ✅ LOGIN FUNCTION
+        async function login() {
+            if (window.location.protocol === 'file:') {
+                alert("ERROR: You are opening this file directly. Please use http://localhost:3000/log.html instead.\n\nMake sure to run 'node server.js' in your terminal first.");
+                return;
+            }
+            let username = document.getElementById("username").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let role = document.getElementById("role").value;
+
+            if (!username || !password) {
+                alert("Please enter both username and password");
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password, role })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    localStorage.setItem("isLoggedIn", "true");
+                    localStorage.setItem("role", data.user.role);
+                    localStorage.setItem("username", data.user.username);
+
+                    if (data.user.role === "industry") {
+                        window.location.href = "ind.html";
+                    } else {
+                        window.location.href = "dash.html";
+                    }
+                } else {
+                    alert(data.message || "Invalid Credentials");
+                }
+            } catch (error) {
+                console.error("Login Error:", error);
+                alert("Server connection failed. Please try again.");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

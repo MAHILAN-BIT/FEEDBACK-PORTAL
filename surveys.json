@@ -1,0 +1,144 @@
+[
+    {
+        "id": "1740544314003",
+        "college": "Kongu Engineering College",
+        "s1": "Good",
+        "s2": "Moderate understanding",
+        "s3": "Professional",
+        "avg": "3.33",
+        "username": "THE REAL STEAL",
+        "date": "26/2/2026, 9:47:48 am"
+    },
+    {
+        "id": "1772515952894",
+        "college": "Bannari Amman",
+        "s1": "Very Good",
+        "s2": "Excellent understanding",
+        "s3": "Professional",
+        "personalFeedback": "SKILLS IN GURUKULAM WAS GOOD BUT WANT LITTLE IMPROVEMENT IN Technical Knowledge .",
+        "avg": "4.00",
+        "username": "SUN MOTORS",
+        "date": "3/3/2026, 11:02:32 am"
+    },
+    {
+        "id": "1772516182154",
+        "college": "Velalar College",
+        "s1": "Good",
+        "s2": "Moderate understanding",
+        "s3": "Needs Improvement",
+        "personalFeedback": "Practical understanding of core subjects should be improved",
+        "avg": "2.67",
+        "username": "THE REAL STEAL",
+        "date": "3/3/2026, 11:06:22 am"
+    },
+    {
+        "id": "1772516269514",
+        "college": "Bannari Amman",
+        "s1": "Very Good",
+        "s2": "Excellent understanding",
+        "s3": "Professional",
+        "personalFeedback": "Communication and professional interaction skills are good",
+        "avg": "4.00",
+        "username": "THE REAL STEAL",
+        "date": "3/3/2026, 11:07:49 am"
+    },
+    {
+        "id": "1772516326807",
+        "college": "Erode Arts",
+        "s1": "Good",
+        "s2": "Good understanding",
+        "s3": "Satisfactory",
+        "personalFeedback": "Want improvement in Knowledge of modern machinery and tools",
+        "avg": "3.33",
+        "username": "THE REAL STEAL",
+        "date": "3/3/2026, 11:08:46 am"
+    },
+    {
+        "id": "1772516401611",
+        "college": "Nandha Engineering College",
+        "s1": "Very Good",
+        "s2": "Moderate understanding",
+        "s3": "Professional",
+        "personalFeedback": "Give Awareness of industrial safety standards",
+        "avg": "3.33",
+        "username": "THE REAL STEAL",
+        "date": "3/3/2026, 11:10:01 am"
+    },
+    {
+        "id": "1772516586322",
+        "college": "Kongu Engineering College",
+        "s1": "Good",
+        "s2": "Good understanding",
+        "s3": "Satisfactory",
+        "personalFeedback": "Valuable exposure; need more practical interaction",
+        "avg": "3.33",
+        "username": "TATA MANAGER",
+        "date": "3/3/2026, 11:13:06 am"
+    },
+    {
+        "id": "1772516623309",
+        "college": "Nandha Engineering College",
+        "s1": "Average",
+        "s2": "Good understanding",
+        "s3": "Satisfactory",
+        "personalFeedback": "Informative visit; improve hands-on learning",
+        "avg": "2.33",
+        "username": "TATA MANAGER",
+        "date": "3/3/2026, 11:13:43 am"
+    },
+    {
+        "id": "1772516667251",
+        "college": "Velalar College",
+        "s1": "Very Good",
+        "s2": "Basic understanding",
+        "s3": "Needs Improvement",
+        "personalFeedback": "need more practical activities",
+        "avg": "2.33",
+        "username": "TATA MANAGER",
+        "date": "3/3/2026, 11:14:27 am"
+    },
+    {
+        "id": "1772516749317",
+        "college": "Erode Arts",
+        "s1": "Good",
+        "s2": "Basic understanding",
+        "s3": "Needs Improvement",
+        "personalFeedback": "need more practical interaction",
+        "avg": "2.33",
+        "username": "TATA MANAGER",
+        "date": "3/3/2026, 11:15:49 am"
+    },
+    {
+        "id": "1772516911988",
+        "college": "Nandha Engineering College",
+        "s1": "Very Good",
+        "s2": "Moderate understanding",
+        "s3": "Professional",
+        "personalFeedback": "more live demonstrations needed.",
+        "avg": "3.33",
+        "username": "THE REAL STEAL",
+        "date": "3/3/2026, 11:18:31 am"
+    },
+    {
+        "id": "1772517518753",
+        "college": "Kongu Engineering College",
+        "s1": "Excellent",
+        "s2": "Excellent understanding",
+        "s3": "Highly Professional",
+        "personalFeedback": "ok",
+        "avg": "5.00",
+        "username": "THE REAL STEAL",
+        "date": "3/3/2026, 11:28:38 am"
+    },
+    {
+        "id": "1772517816914",
+        "college": "Erode Arts",
+        "s1": "Good",
+        "s2": "Moderate understanding",
+        "s3": "Satisfactory",
+        "personalFeedback": "Valuable industrial exposure",
+        "avg": "3.00",
+        "username": "SUN MOTORS",
+        "date": "3/3/2026, 11:33:36 am"
+    }
+]

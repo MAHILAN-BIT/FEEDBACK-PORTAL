@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | College Rankings</title>
+    <link rel="stylesheet" href="sty.css">
+</head>
+
+<body class="has-navbar">
+
+    <!-- SHARED NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-brand" onclick="window.location.href='dash.html'">Industry Portal</div>
+        <div class="nav-links">
+            <a href="dash.html" class="nav-link" style="color: var(--primary)">Dashboard</a>
+            <a href="ind.html" id="navSurvey" class="nav-link">Survey</a>
+            <button onclick="logout()" class="danger logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>College Rankings</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 24px;">Based on Industry Feedback</p>
+
+        <div id="top3" class="top-3-grid"></div>
+
+        <h3 style="border-top: 1px solid #e5e7eb; padding-top: 24px; margin-top: 24px;">All Institutions</h3>
+        <div id="all" class="ranking-list"></div>
+    </div>
+
+    <script>
+        // ✅ LOGIN CHECK
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.href = "log.html";
+        }
+
+        // Role-based survey link visibility
+        if (localStorage.getItem("role") === "industry") {
+            document.getElementById("navSurvey").style.display = "block";
+        } else {
+            document.getElementById("navSurvey").style.display = "none";
+        }
+
+        async function load() {
+            let top = document.getElementById("top3");
+            let all = document.getElementById("all");
+
+            top.innerHTML = "<h3>Top Performers</h3>";
+            all.innerHTML = "";
+
+            try {
+                const response = await fetch('/api/rankings');
+                const results = await response.json();
+
+                if (results.every(r => r.total === 0)) {
+                    all.innerHTML = `
+                        <div style="text-align:center; padding: 40px 0;">
+                            <p style="color: var(--text-muted); font-size: 15px;">No survey data available yet.</p>
+                            <button onclick="window.location.href='ind.html'" class="link-btn" style="width: auto; padding: 10px 20px; margin: 16px auto 0;">Provide First Feedback</button>
+                        </div>`;
+                    return;
+                }
+
+                results.sort((a, b) => {
+                    if (b.avg === a.avg) return b.total - a.total;
+                    return b.avg - a.avg;
+                });
+
+                const medals = ["🥇", "🥈", "🥉"];
+
+                // TOP 3
+                results.slice(0, 3).forEach((c, i) => {
+                    if (c.total > 0) {
+                        let progressWidth = (c.avg / 5) * 100;
+                        top.innerHTML += `
+                            <div class="rank-box" onclick="openSurvey('${c.college}')">
+                                <div style="display: flex; align-items: center;">
+                                    <span class="medal">${medals[i]}</span>
+                                    <div style="flex-grow: 1;">
+                                        <b>${c.college}</b>
+                                        <div class="stats">⭐ ${Number(c.avg).toFixed(1)} Rating • ${c.total} Reviews</div>
+                                        <div class="progress-container">
+                                            <div class="progress-bar" style="width: ${progressWidth}%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`;
+                    }
+                });
+
+                // ALL COLLEGES
+                results.forEach(c => {
+                    all.innerHTML += `
+                        <div class="rank-box" onclick="openSurvey('${c.college}')">
+                            <b>${c.college}</b>
+                            <div class="stats">
+                                ${c.total > 0 ? `⭐ ${Number(c.avg).toFixed(1)} Average • ${c.total} Reviews` : 'No Ratings Yet'}
+                            </div>
+                        </div>`;
+                });
+            } catch (error) {
+                console.error("Ranking Load Error:", error);
+                all.innerHTML = "<p style='text-align:center; color: var(--danger)'>Failed to load rankings</p>";
+            }
+        }
+
+        function openSurvey(college) {
+            localStorage.setItem("selectedCollege", college);
+            window.location.href = "sur.html";
+        }
+
+        function logout() {
+            localStorage.clear();
+            window.location.href = "log.html";
+        }
+
+        document.addEventListener("DOMContentLoaded", load);
+    </script>
+
+</body>
+
+</html>

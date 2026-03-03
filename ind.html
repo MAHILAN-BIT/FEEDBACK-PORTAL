@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industry Visit Survey</title>
+    <link rel="stylesheet" href="sty.css">
+</head>
+
+<body class="has-navbar">
+
+    <!-- SHARED NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-brand" onclick="window.location.href='dash.html'">Industry Portal</div>
+        <div class="nav-links">
+            <a href="dash.html" class="nav-link">Dashboard</a>
+            <a href="ind.html" class="nav-link" style="color: var(--primary)">Survey</a>
+            <button onclick="logout()" class="danger logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Industry Visit Survey</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 24px;">Please provide your valuable
+            feedback</p>
+
+        <div class="form-group">
+            <h3>Select College</h3>
+            <select id="college">
+                <option>Kongu Engineering College</option>
+                <option>Nandha Engineering College</option>
+                <option>Velalar College</option>
+                <option>Bannari Amman</option>
+                <option>Erode Arts</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <h3>Communication Skills</h3>
+            <select id="s1">
+                <option>Excellent</option>
+                <option>Very Good</option>
+                <option>Good</option>
+                <option>Average</option>
+                <option>Poor</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <h3>Technical Knowledge</h3>
+            <select id="s2">
+                <option>Excellent understanding</option>
+                <option>Good understanding</option>
+                <option>Moderate understanding</option>
+                <option>Basic understanding</option>
+                <option>Poor understanding</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <h3>Professional Behavior</h3>
+            <select id="s3">
+                <option>Highly Professional</option>
+                <option>Professional</option>
+                <option>Satisfactory</option>
+                <option>Needs Improvement</option>
+                <option>Unsatisfactory</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <h3>Personal Feedback (Suggestions for students)</h3>
+            <textarea id="personalFeedback" placeholder="How can our students improve?" style="width: 100%; height: 100px; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; font-family: inherit; resize: vertical;"></textarea>
+        </div>
+
+        <button onclick="submitSurvey()" class="btn-primary">Submit Feedback</button>
+    </div>
+
+    <div id="toast-container"></div>
+
+
+
+    <script>
+        // ✅ CHECK LOGIN
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.href = "log.html";
+        }
+
+        // SCORE CONVERSION
+        function convertToScore(answer) {
+            answer = answer.toLowerCase();
+            if (answer.includes("excellent") || answer.includes("highly")) return 5;
+            if (answer.includes("very") || answer.includes("good")) return 4;
+            if (answer.includes("moderate") || answer.includes("professional")) return 3;
+            if (answer.includes("basic") || answer.includes("satisfactory")) return 2;
+            return 1;
+        }
+
+        // SUBMIT SURVEY
+        async function submitSurvey() {
+            let college = document.getElementById("college").value;
+            let s1 = document.getElementById("s1").value;
+            let s2 = document.getElementById("s2").value;
+            let s3 = document.getElementById("s3").value;
+            let personalFeedback = document.getElementById("personalFeedback").value.trim();
+
+            let score1 = convertToScore(s1);
+            let score2 = convertToScore(s2);
+            let score3 = convertToScore(s3);
+            let averageScore = ((score1 + score2 + score3) / 3).toFixed(2);
+
+            let username = localStorage.getItem("username") || "Anonymous";
+            const surveyData = { college, s1, s2, s3, personalFeedback, avg: averageScore, username };
+
+            try {
+                const response = await fetch('/api/surveys', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(surveyData)
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showToast("Feedback Submitted!", "success");
+                    if (localStorage.getItem("role") === "college") {
+                        setTimeout(() => { window.location.href = "dash.html"; }, 2000);
+                    } else {
+                        document.getElementById("s1").selectedIndex = 0;
+                        document.getElementById("s2").selectedIndex = 0;
+                        document.getElementById("s3").selectedIndex = 0;
+                        document.getElementById("personalFeedback").value = "";
+                    }
+                } else {
+                    showToast("Failed to submit feedback", "error");
+                }
+            } catch (error) {
+                console.error("Survey Error:", error);
+                showToast("Server connection failed.", "error");
+            }
+        }
+
+        function showToast(message, type = "success") {
+            const container = document.getElementById("toast-container");
+            const toast = document.createElement("div");
+            toast.className = `toast ${type}`;
+            
+            const icon = type === "success" ? "✓" : "✕";
+            toast.innerHTML = `<span class="toast-icon">${icon}</span><span>${message}</span>`;
+            
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 4000);
+        }
+
+
+
+        function logout() {
+            localStorage.clear();
+            window.location.href = "log.html";
+        }
+    </script>
+
+</body>
+
+</html>
