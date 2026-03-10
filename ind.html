@@ -26,6 +26,38 @@
             feedback</p>
 
         <div class="form-group">
+            <h3>Student Name</h3>
+            <input type="text" id="studentName" placeholder="Enter Full Name" required>
+        </div>
+
+        <div class="form-group">
+            <h3>Student Register Number</h3>
+            <input type="text" id="regNo" placeholder="Enter Student Register Number (e.g. 23IT001)" required>
+        </div>
+
+        <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div>
+                <h3>Internship Role</h3>
+                <input type="text" id="internRole" placeholder="e.g. Web Developer" required>
+            </div>
+            <div>
+                <h3>Project Mentor</h3>
+                <input type="text" id="projectMentor" placeholder="e.g. Mr. Rajesh" required>
+            </div>
+        </div>
+
+        <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div>
+                <h3>Start Date</h3>
+                <input type="date" id="startDate" required>
+            </div>
+            <div>
+                <h3>End Date</h3>
+                <input type="date" id="endDate" required>
+            </div>
+        </div>
+
+        <div class="form-group">
             <h3>Select College</h3>
             <select id="college">
                 <option>Kongu Engineering College</option>
@@ -71,7 +103,8 @@
 
         <div class="form-group">
             <h3>Personal Feedback (Suggestions for students)</h3>
-            <textarea id="personalFeedback" placeholder="How can our students improve?" style="width: 100%; height: 100px; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; font-family: inherit; resize: vertical;"></textarea>
+            <textarea id="personalFeedback" placeholder="How can our students improve?"
+                style="width: 100%; height: 100px; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; font-family: inherit; resize: vertical;"></textarea>
         </div>
 
         <button onclick="submitSurvey()" class="btn-primary">Submit Feedback</button>
@@ -99,11 +132,22 @@
 
         // SUBMIT SURVEY
         async function submitSurvey() {
+            let studentName = document.getElementById("studentName").value.trim();
+            let regNo = document.getElementById("regNo").value.trim();
+            let internRole = document.getElementById("internRole").value.trim();
+            let projectMentor = document.getElementById("projectMentor").value.trim();
+            let startDate = document.getElementById("startDate").value;
+            let endDate = document.getElementById("endDate").value;
             let college = document.getElementById("college").value;
             let s1 = document.getElementById("s1").value;
             let s2 = document.getElementById("s2").value;
             let s3 = document.getElementById("s3").value;
             let personalFeedback = document.getElementById("personalFeedback").value.trim();
+
+            if (!studentName || !regNo || !internRole || !projectMentor || !startDate || !endDate) {
+                showToast("Please fill in all student details", "error");
+                return;
+            }
 
             let score1 = convertToScore(s1);
             let score2 = convertToScore(s2);
@@ -111,7 +155,19 @@
             let averageScore = ((score1 + score2 + score3) / 3).toFixed(2);
 
             let username = localStorage.getItem("username") || "Anonymous";
-            const surveyData = { college, s1, s2, s3, personalFeedback, avg: averageScore, username };
+            const surveyData = {
+                studentName,
+                regNo,
+                internRole,
+                projectMentor,
+                startDate,
+                endDate,
+                college,
+                s1, s2, s3,
+                personalFeedback,
+                avg: averageScore,
+                username
+            };
 
             try {
                 const response = await fetch('/api/surveys', {
@@ -145,12 +201,12 @@
             const container = document.getElementById("toast-container");
             const toast = document.createElement("div");
             toast.className = `toast ${type}`;
-            
+
             const icon = type === "success" ? "✓" : "✕";
             toast.innerHTML = `<span class="toast-icon">${icon}</span><span>${message}</span>`;
-            
+
             container.appendChild(toast);
-            
+
             setTimeout(() => {
                 toast.remove();
             }, 4000);
