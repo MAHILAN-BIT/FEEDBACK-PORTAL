@@ -43,84 +43,100 @@
 
     <!-- CERTIFICATE TEMPLATE (Hidden by default) -->
     <div id="cert-overlay"
-        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:2000; justify-content:center; align-items:center; flex-direction:column; padding: 20px;">
-        <div id="certificate"
-            style="width: 1000px; height: 800px; background: #fdfdfd; padding: 80px; position: relative; font-family: 'Segoe UI', Arial, sans-serif; color: #1a2a4b; box-shadow: 0 0 100px rgba(0,0,0,0.7); display: flex; flex-direction: column; align-items: center; text-align: center; border: 1px solid #ddd;">
+        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:2000; justify-content:center; align-items:center; flex-direction:column; padding: 20px; overflow-y: auto;">
 
-            <!-- Seal in Top Right -->
-            <div style="position: absolute; top: 40px; right: 40px; width: 180px; height: 180px; z-index: 10;">
-                <!-- Gold Circle -->
+        <!-- A4 Landscape oriented container (approx 1123px x 794px) -->
+        <div id="certificate"
+            style="width: 1123px; height: 794px; background: #fffdf9; padding: 60px; position: relative; font-family: 'Inter', 'Georgia', serif; color: #1a2a4b; box-shadow: 0 0 50px rgba(0,0,0,0.5); display: flex; flex-direction: column; align-items: center; text-align: center; border: 15px solid #f2e6d9; box-sizing: border-box;">
+
+            <!-- Ornate Background Pattern (Subtle Gradient) -->
+            <div
+                style="position: absolute; top:0; left:0; width: 100%; height:100%; background: radial-gradient(circle at 50% 50%, rgba(212,175,55,0.03) 0%, transparent 70%); pointer-events: none;">
+            </div>
+
+            <!-- Premium Inner Border -->
+            <div
+                style="position: absolute; top: 20px; bottom: 20px; left: 20px; right: 20px; border: 2px solid #1a2a4b; pointer-events: none;">
+            </div>
+            <div
+                style="position: absolute; top: 28px; bottom: 28px; left: 28px; right: 28px; border: 1px solid #c59d5f; pointer-events: none;">
+            </div>
+
+            <!-- Header Section -->
+            <div
+                style="margin-top: 40px; text-transform: uppercase; letter-spacing: 5px; color: #c59d5f; font-weight: 700; font-size: 20px;">
+                Premium Achievement</div>
+            <h1
+                style="font-size: 80px; font-weight: 900; margin: 10px 0 0 0; color: #1a2a4b; text-transform: uppercase; letter-spacing: 4px; font-family: 'Georgia', serif;">
+                Certificate</h1>
+            <h2 style="font-size: 40px; font-weight: 400; font-style: italic; margin: -10px 0 40px 0; color: #5c4d37;">
+                of Internship Completion</h2>
+
+            <!-- Gold Seal in Top Right -->
+            <div style="position: absolute; top: 60px; right: 60px; width: 160px; height: 160px; z-index: 5;">
                 <div
-                    style="width: 150px; height: 150px; background: radial-gradient(circle at 30% 30%, #ffd700, #b8860b); border-radius: 50%; border: 4px solid #ccac00; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                    style="width: 140px; height: 140px; background: radial-gradient(circle at 30% 30%, #ffd700, #b8860b); border-radius: 50%; border: 4px solid #ccac00; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                    <div
+                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fff; font-weight: 900; font-size: 14px; text-transform: uppercase; text-align: center; line-height: 1.2;">
+                        OFFICIAL<br>GRADUATE<br>SEAL</div>
                 </div>
-                <!-- Red Ribbons -->
                 <div
-                    style="position: absolute; top: 110px; left: 15px; width: 40px; height: 80px; background: #b22222; transform: rotate(-15deg); clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 85%, 0% 100%);">
+                    style="position: absolute; top: 110px; left: 15px; width: 45px; height: 90px; background: #9c1a1a; transform: rotate(-20deg); clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 85%, 0% 100%);">
                 </div>
                 <div
-                    style="position: absolute; top: 110px; left: 95px; width: 40px; height: 80px; background: #b22222; transform: rotate(15deg); clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 85%, 0% 100%);">
+                    style="position: absolute; top: 110px; left: 80px; width: 45px; height: 90px; background: #9c1a1a; transform: rotate(20deg); clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 85%, 0% 100%);">
                 </div>
             </div>
 
-            <h1
-                style="font-size: 78px; font-weight: 850; margin-bottom: 0px; color: #1a2a4b; text-transform: uppercase; letter-spacing: 2px; margin-top: 40px;">
-                Certificate of</h1>
-            <h1
-                style="font-size: 72px; font-weight: 850; margin-bottom: 40px; color: #1a2a4b; text-transform: uppercase; letter-spacing: 2px; margin-top: -15px;">
-                Internship</h1>
-
-            <p style="font-size: 26px; margin-bottom: 50px; color: #1a2542; font-weight: 600;">This internship program
+            <p style="font-size: 24px; color: #333; margin-bottom: 20px; font-weight: 500;">This internship program
                 certificate is proudly awarded to</p>
 
-            <div style="width: 90%; border-bottom: 4px solid #1a2a4b; margin: 10px 0 30px 0; padding-bottom: 5px;">
+            <div style="width: 80%; border-bottom: 3px double #1a2a4b; margin-bottom: 30px;">
                 <h3 id="cert-name"
-                    style="font-size: 64px; font-weight: 700; color: #1a2a4b; margin: 0; font-family: 'Times New Roman', serif;">
+                    style="font-size: 60px; font-weight: 700; color: #1a2a4b; margin: 0 0 5px 0; font-family: 'Georgia', serif; font-style: italic;">
                     [Student Name]</h3>
             </div>
 
-            <div
-                style="font-size: 23px; line-height: 2.2; max-width: 92%; color: #1a2a4b; text-align: left; margin-top: 20px; font-weight: 50;">
+            <div style="font-size: 22px; line-height: 1.8; max-width: 90%; color: #1a2a4b; text-align: center;">
                 For his/her outstanding completion of the internship program at <br>
-                firm <b id="cert-firm" style="border-bottom: 1px solid #1a2a4b; padding: 0 10px;">[Firm Name]</b> under
-                the guidance of <b id="cert-mentor" style="border-bottom: 1px solid #1a2a4b; padding: 0 10px;">[Mentor
-                    Name]</b> for the role of <br>
-                <b id="cert-role" style="border-bottom: 1px solid #1a2a4b; padding: 0 10px;">[Role]</b> from date to <b
-                    id="cert-dates" style="border-bottom: 1px solid #1a2a4b; padding: 0 10px;">[Dates]</b> <br>
-                He/She is found to be hardworking, sincere and diligent. We wish <br>
-                him/her all the best for future.
+                firm <b id="cert-firm" style="color:#c59d5f; font-size: 26px;">[Firm Name]</b> under the guidance of <b
+                    id="cert-mentor">[Mentor Name]</b> for the role of <br>
+                <b id="cert-role" style="color:#c59d5f; font-size: 24px;">[Internship Role]</b> from <b
+                    id="cert-dates">[Start to End Date]</b>. <br>
+                He/She is found to be hardworking, sincere and diligent. We wish him/her all the best for future.
             </div>
 
             <!-- Signature Section -->
-            <div style="display: flex; justify-content: space-between; width: 95%; margin-top: 100px; padding: 0 20px;">
+            <div style="display: flex; justify-content: space-around; width: 95%; margin-top: 80px;">
                 <div style="text-align: center; width: 350px;">
                     <div
-                        style="font-family: 'Brush Script MT', cursive; font-size: 32px; color: #1a2a4b; margin-bottom: -5px; min-height: 40px;">
+                        style="font-family: 'Dancing Script', cursive; font-size: 28px; color: #1a2a4b; margin-bottom: 2px;">
                         Dr Natarajan Chandrasekaran</div>
                     <div
-                        style="border-top: 2.5px solid #1a2a4b; padding-top: 12px; font-weight: 800; font-size: 22px; color: #1a2a4b; text-transform: capitalize;">
+                        style="border-top: 2px solid #1a2a4b; padding-top: 10px; font-weight: 700; font-size: 18px; text-transform: uppercase;">
                         CEO</div>
                 </div>
                 <div style="text-align: center; width: 350px;">
                     <div
-                        style="font-family: 'Brush Script MT', cursive; font-size: 32px; color: #1a2a4b; margin-bottom: -5px; min-height: 40px;">
+                        style="font-family: 'Dancing Script', cursive; font-size: 28px; color: #1a2a4b; margin-bottom: 2px;">
                         MURUGESAN</div>
                     <div
-                        style="border-top: 2.5px solid #1a2a4b; padding-top: 12px; font-weight: 800; font-size: 22px; color: #1a2a4b; text-transform: capitalize;">
+                        style="border-top: 2px solid #1a2a4b; padding-top: 10px; font-weight: 700; font-size: 18px; text-transform: uppercase;">
                         Program Manager</div>
                 </div>
             </div>
 
-            <!-- Small hidden info for reference -->
+            <!-- Hidden reference IDs -->
             <span id="cert-reg" style="display:none"></span>
             <span id="cert-college" style="display:none"></span>
         </div>
 
         <div style="margin-top: 30px; display: flex; gap: 20px;">
             <button onclick="downloadPDF()" class="btn-primary"
-                style="width: auto; padding: 15px 50px; background: #1a2a4b; border: none; font-size: 20px;">Download
-                PDF</button>
-            <button onclick="closeCert()" class="danger"
-                style="width: auto; padding: 15px 40px; font-size: 20px;">Close</button>
+                style="width: auto; padding: 15px 50px; background: #c59d5f; border: none; font-size: 20px; font-weight: 700;">Download
+                Final PDF</button>
+            <button onclick="closeCert()" class="danger" style="width: auto; padding: 15px 40px; font-size: 20px;">Close
+                Preview</button>
         </div>
     </div>
 
@@ -272,26 +288,30 @@
             const studentName = document.getElementById('cert-name').innerText;
 
             try {
-                // Show a loading state if needed
+                // High-resolution capture (4x scale for print quality)
                 const canvas = await html2canvas(cert, {
-                    scale: 3, // High quality
+                    scale: 4,
                     useCORS: true,
                     logging: false,
-                    backgroundColor: '#fdfdfd'
+                    backgroundColor: '#fffdf9',
+                    windowWidth: 1123,
+                    windowHeight: 794
                 });
 
-                const imgData = canvas.toDataURL('image/png');
+                const imgData = canvas.toDataURL('image/png', 1.0);
+
+                // A4 Landscape is 297mm x 210mm
                 const pdf = new jsPDF({
                     orientation: 'landscape',
-                    unit: 'px',
-                    format: [canvas.width, canvas.height]
+                    unit: 'mm',
+                    format: 'a4'
                 });
 
-                pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+                pdf.addImage(imgData, 'PNG', 0, 0, 297, 210);
                 pdf.save(`Internship_Certificate_${studentName.replace(/\s+/g, '_')}.pdf`);
             } catch (err) {
                 console.error("PDF Export Error:", err);
-                alert("Failed to export PDF. Please try again.");
+                alert("Failed to export professional PDF. Please check your browser console.");
             }
         }
 
