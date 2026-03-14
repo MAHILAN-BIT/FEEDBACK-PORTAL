@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survey Details | Industry Feedback</title>
     <link rel="stylesheet" href="sty.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body class="has-navbar">
@@ -47,88 +48,84 @@
 
         <!-- A4 Landscape oriented container (approx 1123px x 794px) -->
         <div id="certificate"
-            style="width: 1123px; height: 794px; background: #fffdf9; padding: 60px; position: relative; font-family: 'Inter', 'Georgia', serif; color: #1a2a4b; box-shadow: 0 0 50px rgba(0,0,0,0.5); display: flex; flex-direction: column; align-items: center; text-align: center; border: 15px solid #f2e6d9; box-sizing: border-box;">
+            style="width: 1123px; height: 794px; background: #fffdf9; padding: 20px; position: relative; font-family: 'Georgia', serif; color: #1a2a4b; box-shadow: 0 0 50px rgba(0,0,0,0.5); box-sizing: border-box; overflow: hidden;">
 
-            <!-- Ornate Background Pattern (Subtle Gradient) -->
-            <div
-                style="position: absolute; top:0; left:0; width: 100%; height:100%; background: radial-gradient(circle at 50% 50%, rgba(212,175,55,0.03) 0%, transparent 70%); pointer-events: none;">
-            </div>
+            <!-- Outer Solid Border Container -->
+            <div style="border: 4px solid #1a2a4b; width: 100%; height: 100%; padding: 8px; box-sizing: border-box;">
+                
+                <!-- Inner Gold Border Container with Content -->
+                <div style="border: 2px solid #c59d5f; width: 100%; height: 100%; padding: 40px 60px; box-sizing: border-box; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: space-between; background: radial-gradient(circle at 50% 50%, rgba(212,175,55,0.03) 0%, transparent 70%);">
+                    
+                    <!-- Gold Seal in Top Right -->
+                    <div style="position: absolute; top: 40px; right: 40px; width: 130px; height: 130px; z-index: 5;">
+                        <div style="width: 120px; height: 120px; background: radial-gradient(circle at 30% 30%, #ffd700, #b8860b); border-radius: 50%; border: 3px solid #ccac00; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: flex; justify-content: center; align-items: center; z-index: 2;">
+                            <div style="color: #fff; font-weight: 900; font-size: 12px; text-transform: uppercase; text-align: center; line-height: 1.2; font-family: sans-serif;">
+                                OFFICIAL<br>GRADUATE<br>SEAL
+                            </div>
+                        </div>
+                        <div style="position: absolute; top: 90px; left: 15px; width: 35px; height: 70px; background: #9c1a1a; transform: rotate(-20deg); clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 85%, 0% 100%); z-index: 1;"></div>
+                        <div style="position: absolute; top: 90px; left: 70px; width: 35px; height: 70px; background: #9c1a1a; transform: rotate(20deg); clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 85%, 0% 100%); z-index: 1;"></div>
+                    </div>
 
-            <!-- Premium Inner Border -->
-            <div
-                style="position: absolute; top: 20px; bottom: 20px; left: 20px; right: 20px; border: 2px solid #1a2a4b; pointer-events: none;">
-            </div>
-            <div
-                style="position: absolute; top: 28px; bottom: 28px; left: 28px; right: 28px; border: 1px solid #c59d5f; pointer-events: none;">
-            </div>
+                    <!-- Top Header Section -->
+                    <div style="text-align: center; width: 100%;">
+                        <div style="text-transform: uppercase; letter-spacing: 5px; color: #c59d5f; font-weight: 700; font-size: 18px; font-family: 'Poppins', sans-serif;">
+                            Premium Achievement
+                        </div>
+                        <h1 style="font-size: 70px; font-weight: 900; margin: 5px 0 0 0; color: #1a2a4b; text-transform: uppercase; letter-spacing: 4px; font-family: 'Georgia', serif;">
+                            Certificate
+                        </h1>
+                        <h2 style="font-size: 32px; font-weight: 400; font-style: italic; margin: 0 0 20px 0; color: #5c4d37;">
+                            of Internship Completion
+                        </h2>
+                    </div>
 
-            <!-- Header Section -->
-            <div
-                style="margin-top: 40px; text-transform: uppercase; letter-spacing: 5px; color: #c59d5f; font-weight: 700; font-size: 20px;">
-                Premium Achievement</div>
-            <h1
-                style="font-size: 80px; font-weight: 900; margin: 10px 0 0 0; color: #1a2a4b; text-transform: uppercase; letter-spacing: 4px; font-family: 'Georgia', serif;">
-                Certificate</h1>
-            <h2 style="font-size: 40px; font-weight: 400; font-style: italic; margin: -10px 0 40px 0; color: #5c4d37;">
-                of Internship Completion</h2>
+                    <!-- Student Name Section -->
+                    <div style="text-align: center; width: 100%;">
+                        <p style="font-size: 22px; color: #333; margin: 0 0 10px 0; font-weight: 500; font-family: 'Poppins', sans-serif;">
+                            This internship program certificate is proudly awarded to
+                        </p>
+                        <div style="width: 80%; border-bottom: 2px solid #1a2a4b; margin: 0 auto 20px auto; padding-bottom: 10px;">
+                            <h3 id="cert-name" style="font-size: 55px; font-weight: 700; color: #1a2a4b; margin: 0; font-family: 'Georgia', serif; font-style: italic;">
+                                [Student Name]
+                            </h3>
+                        </div>
+                    </div>
 
-            <!-- Gold Seal in Top Right -->
-            <div style="position: absolute; top: 60px; right: 60px; width: 160px; height: 160px; z-index: 5;">
-                <div
-                    style="width: 140px; height: 140px; background: radial-gradient(circle at 30% 30%, #ffd700, #b8860b); border-radius: 50%; border: 4px solid #ccac00; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-                    <div
-                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #fff; font-weight: 900; font-size: 14px; text-transform: uppercase; text-align: center; line-height: 1.2;">
-                        OFFICIAL<br>GRADUATE<br>SEAL</div>
+                    <!-- Body Content -->
+                    <div style="font-size: 22px; line-height: 1.8; width: 90%; color: #1a2a4b; text-align: center;">
+                        For his/her outstanding completion of the internship program at <br>
+                        firm <b id="cert-firm" style="color:#c59d5f; font-size: 26px;">[Firm Name]</b> under the guidance of <b id="cert-mentor">[Mentor Name]</b><br>
+                        for the role of <b id="cert-role" style="color:#c59d5f; font-size: 24px;">[Internship Role]</b> from <b id="cert-dates">[Start to End Date]</b>. <br>
+                        We appreciate the hard work, dedication, and professional excellence demonstrated.
+                    </div>
+
+                    <!-- Signature Section -->
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 85%; margin-top: 40px;">
+                        <div style="text-align: center; width: 280px;">
+                            <div style="font-family: 'Dancing Script', cursive; font-size: 32px; color: #1a2a4b; border-bottom: 2px solid #1a2a4b; padding-bottom: 5px; margin-bottom: 5px;" id="cert-mentor-sign">
+                                [Project Mentor]
+                            </div>
+                            <div style="font-weight: 700; font-size: 15px; text-transform: uppercase; font-family: 'Poppins', sans-serif;">
+                                Project Mentor
+                            </div>
+                        </div>
+
+                        <div style="text-align: center; width: 280px;">
+                            <div style="font-family: 'Dancing Script', cursive; font-size: 32px; color: #1a2a4b; border-bottom: 2px solid #1a2a4b; padding-bottom: 5px; margin-bottom: 5px;">
+                                N. Chandrasekaran
+                            </div>
+                            <div style="font-weight: 700; font-size: 15px; text-transform: uppercase; font-family: 'Poppins', sans-serif;">
+                                Company Director
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hidden reference IDs -->
+                    <span id="cert-reg" style="display:none"></span>
+                    <span id="cert-college" style="display:none"></span>
                 </div>
-                <div
-                    style="position: absolute; top: 110px; left: 15px; width: 45px; height: 90px; background: #9c1a1a; transform: rotate(-20deg); clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 85%, 0% 100%);">
-                </div>
-                <div
-                    style="position: absolute; top: 110px; left: 80px; width: 45px; height: 90px; background: #9c1a1a; transform: rotate(20deg); clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 85%, 0% 100%);">
-                </div>
             </div>
-
-            <p style="font-size: 24px; color: #333; margin-bottom: 20px; font-weight: 500;">This internship program
-                certificate is proudly awarded to</p>
-
-            <div style="width: 80%; border-bottom: 3px double #1a2a4b; margin-bottom: 30px;">
-                <h3 id="cert-name"
-                    style="font-size: 60px; font-weight: 700; color: #1a2a4b; margin: 0 0 5px 0; font-family: 'Georgia', serif; font-style: italic;">
-                    [Student Name]</h3>
-            </div>
-
-            <div style="font-size: 22px; line-height: 1.8; max-width: 90%; color: #1a2a4b; text-align: center;">
-                For his/her outstanding completion of the internship program at <br>
-                firm <b id="cert-firm" style="color:#c59d5f; font-size: 26px;">[Firm Name]</b> under the guidance of <b
-                    id="cert-mentor">[Mentor Name]</b> for the role of <br>
-                <b id="cert-role" style="color:#c59d5f; font-size: 24px;">[Internship Role]</b> from <b
-                    id="cert-dates">[Start to End Date]</b>. <br>
-                He/She is found to be hardworking, sincere and diligent. We wish him/her all the best for future.
-            </div>
-
-            <!-- Signature Section -->
-            <div style="display: flex; justify-content: space-around; width: 95%; margin-top: 80px;">
-                <div style="text-align: center; width: 350px;">
-                    <div
-                        style="font-family: 'Dancing Script', cursive; font-size: 28px; color: #1a2a4b; margin-bottom: 2px;">
-                        Dr Natarajan Chandrasekaran</div>
-                    <div
-                        style="border-top: 2px solid #1a2a4b; padding-top: 10px; font-weight: 700; font-size: 18px; text-transform: uppercase;">
-                        CEO</div>
-                </div>
-                <div style="text-align: center; width: 350px;">
-                    <div
-                        style="font-family: 'Dancing Script', cursive; font-size: 28px; color: #1a2a4b; margin-bottom: 2px;">
-                        MURUGESAN</div>
-                    <div
-                        style="border-top: 2px solid #1a2a4b; padding-top: 10px; font-weight: 700; font-size: 18px; text-transform: uppercase;">
-                        Program Manager</div>
-                </div>
-            </div>
-
-            <!-- Hidden reference IDs -->
-            <span id="cert-reg" style="display:none"></span>
-            <span id="cert-college" style="display:none"></span>
         </div>
 
         <div style="margin-top: 30px; display: flex; gap: 20px;">
@@ -261,7 +258,9 @@
                 // Fill certificate
                 document.getElementById('cert-name').innerText = studentData.studentName || 'Student Name';
                 document.getElementById('cert-firm').innerText = studentData.username || 'Our Company';
-                document.getElementById('cert-mentor').innerText = studentData.projectMentor || 'Project Lead';
+                let mentorName = studentData.projectMentor || 'Project Lead';
+                document.getElementById('cert-mentor').innerText = mentorName;
+                document.getElementById('cert-mentor-sign').innerText = mentorName;
                 document.getElementById('cert-role').innerText = studentData.internRole || 'Intern';
                 document.getElementById('cert-dates').innerText = (studentData.startDate && studentData.endDate) ?
                     `${studentData.startDate} to ${studentData.endDate}` : 'the internship period';
@@ -295,7 +294,9 @@
                     logging: false,
                     backgroundColor: '#fffdf9',
                     windowWidth: 1123,
-                    windowHeight: 794
+                    windowHeight: 794,
+                    scrollY: 0,
+                    scrollX: 0
                 });
 
                 const imgData = canvas.toDataURL('image/png', 1.0);
